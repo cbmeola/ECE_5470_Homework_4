@@ -20,9 +20,12 @@ to accomplish morphological reconstruction by dilation.
   3. Creates a structuring element [B].
   4. Creates a marker image [F].
   5. Applies morphological reconstruction to obtain [H] via:
+  
       5A. Dilation of image and stucturing element.
+      
       5B. Keeping pixels in new image that appear in both sets of
           dilated image and complemented original pixels.
+          
   6. Complement the morphological reconstruction to obtain final result,[H^C].
   7. Displays original image [I], mask [G], structuring element [SE], 
           marker [F], and final filled image [H^C].
