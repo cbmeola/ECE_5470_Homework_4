@@ -8,6 +8,7 @@ Homework 4: Automatic Hole Filling
 ********************************************************************
 
 
+
 ********************************************************************
 This program fills small holes in binary images using a marker and mask
 to accomplish morphological reconstruction by dilation.
