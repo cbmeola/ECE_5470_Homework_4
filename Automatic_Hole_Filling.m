@@ -17,15 +17,15 @@
 %   4. Creates a marker image [F].
 %   5. Applies morphological reconstruction to obtain [H] via:
 %       5A. Dilation of image and stucturing element.
-%       5B. Keeping pixels in new image that appear in both sets of
+%       5B. Keeping pixels in new image that appear in both Bts of
 %           dilated image and complemented original pixels.
 %   6. Complement the morphological reconstruction to obtain final result,[H^C].
-%   7. Displays original image [I], mask [G], structuring element [SE], 
+%   7. Displays original image [I], mask [G], structuring element [B], 
 %           marker [F], and final filled image [H^C].
 % 
 % ********************************************************************
 
-close all;
+cloB all;
 clear all;
 clc;
 
@@ -50,7 +50,7 @@ I = logical([0     0     0     0     0     0     0     0;
 G = imcomplement(I);
 
        
-%   3. Creates a structuring element [SE].
+%   3. Creates a structuring element [B].
 B = [1, 1, 1;
       1, 1, 1;
       1, 1, 1];
@@ -68,7 +68,7 @@ H = morphRecon(F, B, G)
 HC = imcomplement(H);
 
 
-%   7. Displays original image [I], mask [G], structuring element [SE], 
+%   7. Displays original image [I], mask [G], structuring element [B], 
 %           marker [F], and final filled image [HC].
 figure(1)
 subplot(2, 3, 1)
@@ -109,7 +109,7 @@ function F = marker(image)
                 F(ii, jj) = 1-image(ii, jj);
                 
             % If the pixel is not on the border, F = 0.
-            else 
+            elB 
                 F(ii, jj) = 0;
             end
             
@@ -131,7 +131,7 @@ function finalImage = morphRecon(image, structElement, mask)
     % Allocate space for final image, H:
     H = zeros(h, w);
     
-    % 5B. Keeps pixels in dilated image that appear in both sets:
+    % 5B. Keeps pixels in dilated image that appear in both Bts:
     %     dilated image and complemented original.
     for ii=1:h
         for jj=1:w
@@ -140,8 +140,8 @@ function finalImage = morphRecon(image, structElement, mask)
             % equal.
             if FxB(ii,jj) == mask(ii,jj)
                 H(ii,jj) = mask(ii,jj);
-            % If not, pixels are not in the set and are zero.
-            else
+            % If not, pixels are not in the Bt and are zero.
+            elB
                 H(ii,jj) = 0;
             end
         
