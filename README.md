@@ -2,16 +2,25 @@
 
 
 % ********************************************************************
+
 % Charlotte Meola
+
 % ECE 5470, Digital Image Processing
+
 % Homework 4: Automatic Hole Filling
-% ********************************************************************
 
 % ********************************************************************
+
+
+% ********************************************************************
+
 % This program fills small holes in binary images using a marker and mask
+
 % to accomplish morphological reconstruction by dilation.
+
 % 
 % 'Automatic_Hole_Filling.m' MATLAB file accomplishes the following: 
+
 %
 %   1. Creates a simple binary image with a binary matrix [I].
 %   2. Creates a mask (complement of the image) [G].
